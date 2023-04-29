@@ -53,8 +53,6 @@ var sortable = (function () {
       return Array.from(nodes).filter(function (item) { return item.nodeType === 1 && item.matches(selector); });
   });
 
-  /* eslint-env browser */
-  /* eslint-disable no-use-before-define */
   var stores = new Map();
   /* eslint-enable no-use-before-define */
   /**
@@ -108,7 +106,7 @@ var sortable = (function () {
        */
       Store.prototype.setConfig = function (key, value) {
           if (!this._config.has(key)) {
-              throw new Error("Trying to set invalid configuration item: " + key);
+              throw new Error("Trying to set invalid configuration item: ".concat(key));
           }
           // set config
           this._config.set(key, value);
@@ -121,7 +119,7 @@ var sortable = (function () {
        */
       Store.prototype.getConfig = function (key) {
           if (!this._config.has(key)) {
-              throw new Error("Invalid configuration item requested: " + key);
+              throw new Error("Invalid configuration item requested: ".concat(key));
           }
           return this._config.get(key);
       };
@@ -218,7 +216,7 @@ var sortable = (function () {
           return;
       }
       element.addEventListener(eventName, callback);
-      store(element).setData("event" + eventName, callback);
+      store(element).setData("event".concat(eventName), callback);
   }
   /**
    * @param {Array<HTMLElement>|HTMLElement} element
@@ -231,8 +229,8 @@ var sortable = (function () {
           }
           return;
       }
-      element.removeEventListener(eventName, store(element).getData("event" + eventName));
-      store(element).deleteData("event" + eventName);
+      element.removeEventListener(eventName, store(element).getData("event".concat(eventName)));
+      store(element).deleteData("event".concat(eventName));
   }
 
   /**
@@ -725,6 +723,16 @@ var sortable = (function () {
       removeEventListener(items, 'mouseenter');
       removeEventListener(items, 'mouseleave');
   };
+  /**
+   *
+   * remove Store map values
+   * @param {Array|NodeList} items
+   */
+  var removeStoreData = function (items) {
+      if (items instanceof Array) {
+          items.forEach(function (element) { return stores.delete(element); });
+      }
+  };
   // Remove container events
   var removeContainerEvents = function (originContainer, previousContainer) {
       if (originContainer) {
@@ -743,6 +751,8 @@ var sortable = (function () {
    */
   var getDragging = function (draggedItem, sortable) {
       var ditem = draggedItem;
+      allowDuplicates(sortable);
+      verifyDragItemExists();
       if (store(sortable).getConfig('copy') === true) {
           ditem = draggedItem.cloneNode(true);
           addAttribute(ditem, 'aria-copied', 'true');
@@ -752,6 +762,12 @@ var sortable = (function () {
       }
       return ditem;
   };
+  function allowDuplicates(sortable) {
+      return store(sortable).getConfig('allowDuplicate') === true;
+  }
+  function verifyDragItemExists(draggedItem, sortable) {
+      debugger;
+  }
   /**
    * Remove data from sortable
    * @param {HTMLElement} sortable a single sortable
@@ -821,6 +837,8 @@ var sortable = (function () {
       removeEventListener(handles, 'mousedown');
       removeItemEvents(items);
       removeItemData(items);
+      removeStoreData(items);
+      removeStoreData([sortableElement]);
       removeContainerEvents(originContainer, previousContainer);
       // clear sortable flag
       sortableElement.isSortable = false;
@@ -924,7 +942,7 @@ var sortable = (function () {
           // log deprecation
           ['connectWith', 'disableIEFix'].forEach(function (configKey) {
               if (Object.prototype.hasOwnProperty.call(options, configKey) && options[configKey] !== null) {
-                  console.warn("HTML5Sortable: You are using the deprecated configuration \"" + configKey + "\". This will be removed in an upcoming version, make sure to migrate to the new options when updating.");
+                  console.warn("HTML5Sortable: You are using the deprecated configuration \"".concat(configKey, "\". This will be removed in an upcoming version, make sure to migrate to the new options when updating."));
               }
           });
           // merge options with default options
@@ -1273,7 +1291,7 @@ var sortable = (function () {
                   return;
               }
               var options = addData(sortableElement, 'opts');
-              if (parseInt(options.maxItems) && filter(sortableElement.children, addData(sortableElement, 'items')).length > parseInt(options.maxItems) && dragging.parentElement !== sortableElement) {
+              if (parseInt(options.maxItems) && filter(sortableElement.children, addData(sortableElement, 'items')).length >= parseInt(options.maxItems) && dragging.parentElement !== sortableElement) {
                   return;
               }
               e.preventDefault();
@@ -1307,4 +1325,4 @@ var sortable = (function () {
 
   return sortable;
 
-}());
+})();

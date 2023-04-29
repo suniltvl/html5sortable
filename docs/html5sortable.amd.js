@@ -6,8 +6,7 @@
  *
  * Released under the MIT license.
  */
-var sortable = (function () {
-  'use strict';
+define((function () { 'use strict';
 
   /**
    * Get or set data on element
@@ -751,9 +750,8 @@ var sortable = (function () {
    */
   var getDragging = function (draggedItem, sortable) {
       var ditem = draggedItem;
-      this.allowDuplicates(sortable);
-      this.verifyDragItemExists(draggedItem, sortable);
-      debugger;
+      allowDuplicates(sortable);
+      verifyDragItemExists();
       if (store(sortable).getConfig('copy') === true) {
           ditem = draggedItem.cloneNode(true);
           addAttribute(ditem, 'aria-copied', 'true');
@@ -763,6 +761,12 @@ var sortable = (function () {
       }
       return ditem;
   };
+  function allowDuplicates(sortable) {
+      return store(sortable).getConfig('allowDuplicate') === true;
+  }
+  function verifyDragItemExists(draggedItem, sortable) {
+      debugger;
+  }
   /**
    * Remove data from sortable
    * @param {HTMLElement} sortable a single sortable
@@ -1320,4 +1324,4 @@ var sortable = (function () {
 
   return sortable;
 
-})();
+}));

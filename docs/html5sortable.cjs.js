@@ -750,9 +750,8 @@ var removeContainerEvents = function (originContainer, previousContainer) {
  */
 var getDragging = function (draggedItem, sortable) {
     var ditem = draggedItem;
-    this.allowDuplicates(sortable);
-    this.verifyDragItemExists(draggedItem, sortable);
-    debugger;
+    allowDuplicates(sortable);
+    verifyDragItemExists();
     if (store(sortable).getConfig('copy') === true) {
         ditem = draggedItem.cloneNode(true);
         addAttribute(ditem, 'aria-copied', 'true');
@@ -762,6 +761,12 @@ var getDragging = function (draggedItem, sortable) {
     }
     return ditem;
 };
+function allowDuplicates(sortable) {
+    return store(sortable).getConfig('allowDuplicate') === true;
+}
+function verifyDragItemExists(draggedItem, sortable) {
+    debugger;
+}
 /**
  * Remove data from sortable
  * @param {HTMLElement} sortable a single sortable

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="basscss.css">
+    <script src="html5sortable.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <title>Mock Flow</title>
+</head>
+
+<body>
+    <div class="col col-12">
+        <div class="col col-2">
+            <ul class="ml4 js-sortable-copy sortable list flex flex-column list-reset">
+                <!-- <li class="p1 mb1 yellow bg-maroon" style="position: relative; z-index: 10">Item 1</li>
+                <li class="p1 mb1 yellow bg-maroon" style="position: relative; z-index: 10">Item 2</li>
+                <li class="p1 mb1 yellow bg-maroon" style="position: relative; z-index: 10">Item 3</li>
+                <li class="p1 mb1 yellow bg-maroon" style="position: relative; z-index: 10">Item 4</li>
+                <li class="p1 mb1 yellow bg-maroon" style="position: relative; z-index: 10">Item 5</li>
+                <li class="p1 mb1 yellow bg-maroon" style="position: relative; z-index: 10">Item 6</li> -->
+            </ul>
+        </div>
+        <div class="col col-1">&nbsp;</div>
+        <div class="col col-3">
+            <ul
+                class="p2 border maroon border-maroon js-sortable-copy-target sortable list flex flex-column list-reset">
+            </ul>
+        </div>
+        <div class="col col-6">
+
+        </div>
+        <span id="spnMessage"></span>
+    </div>
+    <script>
+        var data = {};
+        var url = "data_json/sample.json";
+        $.ajax(url)
+            .done(function (response) {
+                data = response;
+                // console.log(response);
+
+                $.each(data, function (ind, itm) {
+                    var tmpl = `<li class="p1 mb1 yellow bg-maroon" data-param="${itm.PropertyName}" style="position: relative; z-index: 10">${itm.PropertyName}</li>`;
+                    $(".js-sortable-copy").append(tmpl);
+
+                })
+                initSortable();
+            })
+            .fail(function (error) {
+                $("#spnMessage").text(error.statusText);
+            });
+
+        function initSortable() {
+            sortable('.js-sortable-copy', {
+                forcePlaceholderSize: true,
+                copy: false,
+                acceptFrom: false,
+                placeholderClass: 'mb1 bg-navy border border-yellow',
+                allowDuplicate: false
+            });
+            sortable('.js-sortable-copy-target', {
+                forcePlaceholderSize: true,
+                acceptFrom: '.js-sortable-copy,.js-sortable-copy-target',
+                placeholderClass: 'mb1 border border-maroon',
+
+            });
+
+            sortable('.js-sortable-copy')[0].addEventListener('sortstop', function (e) {
+                var selItem = e.detail.item.dataset.param;
+                var selObj = $.grep(data, function (itm) {
+                    return itm.PropertyName == selItem;
+                });
+                renderControl(selObj);
+            })
+
+            // sortable('.js-sortable-copy-target')[0].addEventListener('sortenter', function (e) {
+            //     var selItem = e.detail.item.dataset.param;
+            //     var matched = $.grep(e.target.children, function (htmlItm) {
+            //         return htmlItm.dataset.param == selItem;
+            //     });
+            //     if(matched.length > 0){                    
+            //         return false;
+            //     }
+            // });
+
+            var renderControl = function (selObj) {
+                var selItem = e.detail.item.dataset.param;
+                if(selItem == )
+            }
+        }
+    </script>
+</body>
+
+</html>

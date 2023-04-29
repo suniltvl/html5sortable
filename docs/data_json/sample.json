@@ -1,0 +1,87 @@
+[
+    {
+        "PropertyName": "module",
+        "Description": "module Field",
+        "Type": "Text",
+        "Value": ""
+    },
+    {
+        "PropertyName": "Document",
+        "Description": "Document Field",
+        "Type": "Text",
+        "Value": ""
+    },
+    {
+        "PropertyName": "section",
+        "Description": "section Field",
+        "Type": "Text",
+        "Value": ""
+    },
+    {
+        "PropertyName": "group",
+        "Description": "group Field",
+        "Type": "Text",
+        "Value": ""
+    },
+    {
+        "PropertyName": "type",
+        "Description": "type Field",
+        "Type": "Text",
+        "Value": ""
+    },
+    {
+        "PropertyName": "label",
+        "Description": "label Field",
+        "Type": "Text",
+        "Value": ""
+    },
+    {
+        "PropertyName": "icon",
+        "Description": "icon Field",
+        "Type": "Text",
+        "Value": ""
+    },
+    {
+        "PropertyName": "widgetType",
+        "Description": "widgetType Field",
+        "Type": "Dropdown",
+        "List": [],
+        "Value": ""
+    },
+    {
+        "PropertyName": "field",
+        "Description": "field Field",
+        "Type": "Text",
+        "Value": ""
+    },
+    {
+        "PropertyName": "featureId",
+        "Description": "featureId Field",
+        "Type": "Text",
+        "Value": ""
+    },
+    {
+        "PropertyName": "offset",
+        "Description": "offset Field",
+        "Type": "Text",
+        "Value": ""
+    },
+    {
+        "PropertyName": "size",
+        "Description": "size Field",
+        "Type": "Number",
+        "Value": ""
+    },
+    {
+        "PropertyName": "isLazyLoadedSection",
+        "Description": "isLazyLoadedSection Field",
+        "Type": "Boolean",
+        "Value": ""
+    },
+    {
+        "PropertyName": "valueMember",
+        "Description": "valueMember Field",
+        "Type": "Text",
+        "Value": ""
+    }
+]
