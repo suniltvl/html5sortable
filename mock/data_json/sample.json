@@ -1,0 +1,129 @@
+[
+    {
+        "PropertyName": "module",
+        "Description": "module Field",
+        "Type": "Text",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "Document",
+        "Description": "Document Field",
+        "Type": "Text",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "section",
+        "Description": "section Field",
+        "Type": "Text",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "group",
+        "Description": "group Field",
+        "Type": "Text",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "type",
+        "Description": "type Field",
+        "Type": "Text",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "label",
+        "Description": "label Field",
+        "Type": "Text",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "icon",
+        "Description": "icon Field",
+        "Type": "Text",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "widgetType",
+        "Description": "widgetType Field",
+        "Type": "Dropdown",
+        "List": [],
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "field",
+        "Description": "field Field",
+        "Type": "Text",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "featureId",
+        "Description": "featureId Field",
+        "Type": "Text",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "offset",
+        "Description": "offset Field",
+        "Type": "Text",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "size",
+        "Description": "size Field",
+        "Type": "Number",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "isLazyLoadedSection",
+        "Description": "isLazyLoadedSection Field",
+        "Type": "Boolean",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "valueMember",
+        "Description": "valueMember Field",
+        "Type": "Text",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "offset",
+        "Description": "offset Field",
+        "Type": "Text",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "size",
+        "Description": "size Field",
+        "Type": "Number",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "isLazyLoadedSection",
+        "Description": "isLazyLoadedSection Field",
+        "Type": "Boolean",
+        "Priority":"Medium",
+        "Value": ""
+    },
+    {
+        "PropertyName": "valueMember",
+        "Description": "valueMember Field",
+        "Type": "Text",
+        "Priority":"Medium",
+        "Value": ""
+    }
+]

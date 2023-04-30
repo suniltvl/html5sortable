@@ -1,0 +1,4 @@
+.horizontalLi{
+    float: left;
+    display: table-cell;
+}

@@ -748,9 +748,6 @@ var removeContainerEvents = function (originContainer, previousContainer) {
  */
 var getDragging = function (draggedItem, sortable) {
     var ditem = draggedItem;
-    this.allowDuplicates(sortable);
-    this.verifyDragItemExists(draggedItem, sortable);
-    debugger;
     if (store(sortable).getConfig('copy') === true) {
         ditem = draggedItem.cloneNode(true);
         addAttribute(ditem, 'aria-copied', 'true');

@@ -69,13 +69,13 @@
 
             });
 
-            sortable('.js-sortable-copy')[0].addEventListener('sortstop', function (e) {
-                var selItem = e.detail.item.dataset.param;
-                var selObj = $.grep(data, function (itm) {
-                    return itm.PropertyName == selItem;
-                });
-                renderControl(selObj);
-            })
+            // sortable('.js-sortable-copy')[0].addEventListener('sortstop', function (e) {
+            //     var selItem = e.detail.item.dataset.param;
+            //     var selObj = $.grep(data, function (itm) {
+            //         return itm.PropertyName == selItem;
+            //     });
+            //     renderControl(selObj);
+            // })
 
             // sortable('.js-sortable-copy-target')[0].addEventListener('sortenter', function (e) {
             //     var selItem = e.detail.item.dataset.param;
@@ -89,7 +89,7 @@
 
             var renderControl = function (selObj) {
                 var selItem = e.detail.item.dataset.param;
-                if(selItem == )
+                // if(selItem == )
             }
         }
     </script>
